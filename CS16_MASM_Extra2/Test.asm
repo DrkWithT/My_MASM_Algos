@@ -1,6 +1,5 @@
 ; Test.asm
 ; By: Derek Tan
-; Date: 11/15/2022
 
 INCLUDE Irvine32.inc
 
@@ -10,7 +9,8 @@ INCLUDE Irvine32.inc
 ; Procedure printHexW
 ; ==================
 ; Desc: Prints the unsigned hex digit representation of a WORD type. Uses WriteChar from Irvine32.inc!
-; Uses: EBX for a WORD value (argument) int "num"!, EAX for hex digit, ECX for looping, EDX for bitmask.
+; Arg: EBX for a WORD value (int32 num)
+; Uses: EAX for hex digit, ECX for looping, EDX for bitmask.
 ; Returns: void
 printHexW PROC
     ; preserve general registers EAX, ECX, EDX...
@@ -83,10 +83,10 @@ EndCond2:
 printHexW ENDP
 
 ; Procedure main
-; Tests my procedures.
+; Tests my procedure writeHexW.
 main PROC
-    ; Do the function call of printHex(190)
-    mov ebx, 190    ; 0000 0000 0000 0000
+    ; Do call: printHex(190)
+    mov ebx, 190    ; HEX: 0xBE
     call printHexW
     exit
 
